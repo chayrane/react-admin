@@ -10,7 +10,7 @@ const Contacts = () => {
   const colors = tokens(theme.palette.mode);
 
   const columns = [
-    { field: "id", headerName: "ID", flex: 0.1 },
+    { field: "id", headerName: "ID", flex: 0.3 },
     { field: "registrarId", headerName: "Registrar ID" },
     {
       field: "name",
@@ -59,8 +59,8 @@ const Contacts = () => {
         subTitle="List of Contacts for Future Reference"
       />
       <Box
-        m="40px 0 0 0"
-        height="72vh"
+        m="20px 0 0 0"
+        height={`calc(100vh - 190px)`}
         sx={{
           "& .MuiDataGrid-root": {
             border: "none",
@@ -69,7 +69,7 @@ const Contacts = () => {
             borderBottom: "none",
           },
           "& .name-column--cell": {
-            color: colors.greenAccent[300],
+            color: colors.greenAccent[300]
           },
           "& .MuiDataGrid-columnHeader": {
             backgroundColor: colors.blueAccent[700],
@@ -87,6 +87,15 @@ const Contacts = () => {
           },
           "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
             color: `${colors.grey[100]} !important`,
+          },
+          "& .MuiDataGrid-scrollbarFiller": {
+            backgroundColor: colors.blueAccent[700]
+          },
+          '& .MuiDataGrid-columnHeader:focus-within, & .MuiDataGrid-cell:focus-within': {
+            outline: 'none',
+          },
+          '& .MuiDataGrid-columnHeader:focus, & .MuiDataGrid-cell:focus': {
+            outline: 'none',
           },
         }}
       >
