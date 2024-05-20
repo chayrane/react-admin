@@ -14,7 +14,7 @@ const initialValues = {
 };
 
 const phoneRegExp =
-  /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
+  /^[6-9][0-9]{9}$/;
 
 const userSchema = yup.object().shape({
   firstName: yup.string().required("required"),
