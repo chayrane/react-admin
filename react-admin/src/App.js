@@ -1,19 +1,21 @@
+import React, { lazy, Suspense } from "react";
 import { ColorModeContext, useMode } from "./theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { Route, Routes } from "react-router-dom";
-import Topbar from './scenes/global/Topbar';
-import Sidebar from './scenes/global/Sidebar';
-import Dashboard from './scenes/dashboard';
-import Team from './scenes/team';
-import Contacts from './scenes/contacts';
-import Invoices from './scenes/invoices';
-import Form from './scenes/form';
-import Calendar from './scenes/calendar';
-import FAQ from './scenes/faq';
-import Bar from './scenes/bar';
-import Pie from './scenes/pie';
-import Line from './scenes/line';
-import Geography from './scenes/geography';
+
+const Topbar = lazy(() => import("./scenes/global/Topbar"));
+const Sidebar = lazy(() => import("./scenes/global/Sidebar"));
+const Dashboard = lazy(() => import("./scenes/dashboard"));
+const Team = lazy(() => import("./scenes/team"));
+const Contacts = lazy(() => import("./scenes/contacts"));
+const Invoices = lazy(() => import("./scenes/invoices"));
+const Form = lazy(() => import("./scenes/form"));
+const Calendar = lazy(() => import("./scenes/calendar"));
+const FAQ = lazy(() => import("./scenes/faq"));
+const Bar = lazy(() => import("./scenes/bar"));
+const Pie = lazy(() => import("./scenes/pie"));
+const Line = lazy(() => import("./scenes/line"));
+const Geography = lazy(() => import("./scenes/geography"));
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -26,22 +28,26 @@ function App() {
           <Sidebar />
           <main className="content">
             <Topbar />
-            <Routes>
-              <Route path="/" element={<Dashboard />} />
-              
-              <Route path="/team" element={<Team />} />
-              <Route path="/contacts" element={<Contacts />} />
-              <Route path="/invoices" element={<Invoices />} />
+            <div className="main-content">
+              <Suspense fallback={<div>Loading...</div>}>
+                <Routes>
+                  <Route path="/" element={<Dashboard />} />
 
-              <Route path="/form" element={<Form />} />
-              <Route path="/calendar" element={<Calendar />} />
-              <Route path="/faq" element={<FAQ />} />
+                  <Route path="/team" element={<Team />} />
+                  <Route path="/contacts" element={<Contacts />} />
+                  <Route path="/invoices" element={<Invoices />} />
 
-              <Route path="/bar" element={<Bar />} />
-              <Route path="/pie" element={<Pie />} />
-              <Route path="/line" element={<Line />} />
-              <Route path="/geography" element={<Geography />} />
-            </Routes>
+                  <Route path="/form" element={<Form />} />
+                  <Route path="/calendar" element={<Calendar />} />
+                  <Route path="/faq" element={<FAQ />} />
+
+                  <Route path="/bar" element={<Bar />} />
+                  <Route path="/pie" element={<Pie />} />
+                  <Route path="/line" element={<Line />} />
+                  <Route path="/geography" element={<Geography />} />
+                </Routes>
+              </Suspense>
+            </div>
           </main>
         </div>
       </ThemeProvider>

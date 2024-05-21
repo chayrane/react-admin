@@ -18,7 +18,12 @@ const Topbar = () => {
 
   return (
     <div>
-      <Box display="flex" justifyContent="space-between" p={2}>
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        p={2}
+        sx={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
+      >
         {/* Search Bar */}
         <Box
           display="flex"

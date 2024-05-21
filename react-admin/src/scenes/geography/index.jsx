@@ -9,10 +9,10 @@ const Geography = () => {
 
   return (
     <Box m="20px">
-      <Header title="Geography" subtitle="Simple Geography Chart" />
+      <Header title="Geography" subTitle="Simple Geography Chart" />
 
       <Box
-        height="72vh"
+        height="70vh"
         border={`1px solid ${colors.grey[100]}`}
         borderRadius="4px"
       >
